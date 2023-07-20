@@ -1,9 +1,14 @@
 const express = require("express");
 const cors = require("cors");
+const { users } = require("./data/users");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.get("/api/users", (req, res) => {
+  res.json(users);
+});
 app.post("/api/user", (req, res) => {
   res.json(req.body);
 });
